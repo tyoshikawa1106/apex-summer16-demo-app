@@ -1,0 +1,17 @@
+<apex:page >
+    <script type="text/javascript">
+        angular.module("myApp", ["Controllers", "ngRoute", "ngMessages"]).config(["$routeProvider", function($routeProvider){
+            $routeProvider.when("/", {
+              controller : "HomeCtrl",
+              templateUrl : "/apex/Summer16ApexDemoHome"
+            }).
+            when("/SerializeJson", {
+              controller : "SerializeJsonCtrl",
+              templateUrl : "/apex/Summer16ApexDemoSerializeJson"
+            }).
+            otherwise({
+                redirectTo: "/"
+            });
+        }]);
+    </script>
+</apex:page>

@@ -1,0 +1,76 @@
+<apex:page >
+    <script type="text/javascript">
+        var app = angular.module("Services", []);
+
+        app.factory("HomeServices", ["$rootScope", function($rootScope) {
+            // 初期処理
+            function init(scope) {
+                console.log('Welcome Salesforce Developer!');
+            }
+
+            return {
+                init: function(scope) {
+                    return init(scope);
+                }
+            };
+        }]);
+
+        app.factory("SerializeServices", ["$rootScope", function($rootScope) {
+            // 初期処理
+            function init(scope) {
+                console.log('Apex オブジェクトの逐次化時の null 値の抑制');
+            }
+
+            // JSON.serialize
+            function doSerialize(scope, isSuppressApexObjectNulls) {
+                Summer16ApexDemoController.doSerializeJson(
+                    isSuppressApexObjectNulls,
+                    function(result, event) {
+                        if(event.status) {
+                            // 結果をセット
+                            scope.result = result;
+                            // JS側で整形する場合のサンプル
+                            //var resultStr = JSON.parse(result);
+                            //scope.result = JSON.stringify(resultStr, null, "    ");
+                        } else {
+                            alert(event.message);
+                        }
+                        // Viewに反映
+                        $rootScope.$apply();
+                    },
+                    { buffer: true, escape: false, timeout: 30000 }
+                );
+            }
+
+            // JSON.serializePretty
+            function doSerializePretty(scope, isSuppressApexObjectNulls) {
+                Summer16ApexDemoController.doSerializePrettyJson(
+                    isSuppressApexObjectNulls,
+                    function(result, event) {
+                        if(event.status) {
+                            // 結果をセット
+                            scope.resultPretty = result;
+                        } else {
+                            alert(event.message);
+                        }
+                        // Viewに反映
+                        $rootScope.$apply();
+                    },
+                    { buffer: true, escape: false, timeout: 30000 }
+                );
+            }
+
+            return {
+                init: function(scope) {
+                    return init(scope);
+                },
+                doSerialize: function(scope, isSuppressApexObjectNulls) {
+                    return doSerialize(scope, isSuppressApexObjectNulls);
+                },
+                doSerializePretty: function(scope, isSuppressApexObjectNulls) {
+                    return doSerializePretty(scope, isSuppressApexObjectNulls);
+                },
+            };
+        }]);
+    </script>
+</apex:page>

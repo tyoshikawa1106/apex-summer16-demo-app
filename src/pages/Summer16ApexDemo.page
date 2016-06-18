@@ -1,0 +1,28 @@
+<apex:page controller="Summer16ApexDemoController" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false">
+    <head>
+        <apex:includeScript value="{!URLFOR($Resource.AngularJsLib, 'angular/angular.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.AngularJsLib, 'angular-route/angular-route.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.AngularJsLib, 'angular-messages/angular-messages.min.js')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.SLDS201, 'assets/styles/salesforce-lightning-design-system.min.css')}" />
+        <apex:include pageName="Summer16ApexDemoCss" />
+    </head>
+    <body>
+        <!-- Apps -->
+        <div id="vf-page" class="slds">
+            <div ng-app="myApp">
+                <div class="slds-grid">
+                    <nav class="slds-col slds-size--2-of-12 sideMenu">
+                        <c:Summer16ApexDemoNavi />
+                    </nav>
+                    <main class="slds-col slds-size--10-of-12">
+                        <div ng-view="true" autoscroll="true" style="z-index: -1;"></div>
+                    </main>
+                </div>
+            </div>
+        </div>
+        <!-- AngularJs -->
+        <apex:include pageName="Summer16ApexDemoAppJs" />
+        <apex:include pageName="Summer16ApexDemoControllersJs" />
+        <apex:include pageName="Summer16ApexDemoServicesJs" />
+    </body>
+</apex:page>

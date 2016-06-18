@@ -1,0 +1,10 @@
+<apex:page >
+    <style type="text/css">
+        #vf-page .sideMenu {
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            z-index: 998;
+            min-width: 250px;
+            min-height: 650px;
+        }
+    </style>
+</apex:page>

@@ -1,0 +1,19 @@
+<apex:component >
+    <apex:attribute name="title" type="String" required="true" description="タイトル" />
+    <apex:attribute name="description" type="String" required="true" description="説明" />
+    <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <div class="slds-page-header" role="banner">
+            <div class="slds-media slds-media--center">
+                <div class="slds-media__figure">
+                    <svg aria-hidden="true" class="slds-icon slds-icon-action-fallback slds-icon_container--circle">
+                        <use xlink:href="{!URLFOR($Resource.SLDS201, '/assets/icons/action-sprite/svg/symbols.svg#fallback')}"></use>
+                    </svg>
+                </div>
+                <div class="slds-media__body">
+                    <p class="slds-page-header__title slds-truncate slds-align-middle" title="Rohde Corp - 80,000 Widgets">{!title}</p>
+                    <p class="slds-text-body--small page-header__info"><a href="{!description}">{!description}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</apex:component>

@@ -1,0 +1,27 @@
+<apex:page showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false">
+    <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <c:Summer16ApexDemoPageHeader title="Apex オブジェクトの逐次化時の null 値の抑制" description="https://releasenotes.docs.salesforce.com/ja-jp/summer16/release-notes/rn_apex_serialize_JSON_enhancement.htm" />
+        <!-- JSON.serialize -->
+        <div class="slds-m-around--small">
+            <button ng-click="doSerializeOptionFalse()" class="slds-button slds-button--brand">JSON.serialize (suppressApexObjectNulls = False)</button>
+            &nbsp;
+            <button ng-click="doSerializeOptionTrue()" class="slds-button slds-button--brand">JSON.serialize (suppressApexObjectNulls = True)</button>
+        </div>
+        <div class="slds-m-around--small">
+            <div style="background-color: rgba(0,0,0,0.6); color: #fff; font-weight: bold;" class="slds-p-around--small slds-m-top--small">
+                <pre ng-bind="result"></pre>
+            </div>
+        </div>
+        <!-- JSON.serializePretty -->
+        <div class="slds-m-around--small">
+            <button ng-click="doSerializePrettyOptionFalse()" class="slds-button slds-button--brand">JSON.serializePretty (suppressApexObjectNulls = False)</button>
+            &nbsp;
+            <button ng-click="doSerializePrettyOptionTrue()" class="slds-button slds-button--brand">JSON.serializePretty (suppressApexObjectNulls = True)</button>
+        </div>
+        <div class="slds-m-around--small">
+            <div style="background-color: rgba(0,0,0,0.6); color: #fff; font-weight: bold;" class="slds-p-around--small slds-m-top--small">
+                <pre ng-bind="resultPretty"></pre>
+            </div>
+        </div>
+    </div>
+</apex:page>
