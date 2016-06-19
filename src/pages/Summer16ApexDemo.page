@@ -10,14 +10,7 @@
         <!-- Apps -->
         <div id="vf-page" class="slds">
             <div ng-app="myApp">
-                <div class="slds-grid">
-                    <nav class="slds-col slds-size--2-of-12 sideMenu">
-                        <c:Summer16ApexDemoNavi />
-                    </nav>
-                    <main class="slds-col slds-size--10-of-12">
-                        <div ng-view="true" autoscroll="true" style="z-index: -1;"></div>
-                    </main>
-                </div>
+                <div ng-view="true" autoscroll="true"></div>
             </div>
         </div>
         <!-- AngularJs -->

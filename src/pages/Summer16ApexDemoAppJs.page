@@ -3,23 +3,28 @@
         angular.module("myApp", ["Controllers", "ngRoute", "ngMessages"]).config(["$routeProvider", function($routeProvider){
             $routeProvider.when("/", {
               controller : "HomeCtrl",
-              templateUrl : "/apex/Summer16ApexDemoHome"
+              templateUrl : "/apex/Summer16ApexDemoHome",
+              routeTitle : "Home"
             }).
             when("/SerializeJson", {
               controller : "SerializeJsonCtrl",
-              templateUrl : "/apex/Summer16ApexDemoSerializeJson"
+              templateUrl : "/apex/Summer16ApexDemoSerializeJson",
+              routeTitle : "SerializeJson"
             }).
             when("/PopulatedFieldsAsMap", {
               controller : "PopulatedFieldsAsMapCtrl",
-              templateUrl : "/apex/Summer16ApexDemoPopulatedFieldsAsMap"
+              templateUrl : "/apex/Summer16ApexDemoPopulatedFieldsAsMap",
+              routeTitle : "PopulatedFieldsAsMap"
             }).
             when("/PlatformActionLimitQuery", {
               controller : "PlatformActionLimitQueryCtrl",
-              templateUrl : "/apex/Summer16ApexDemoPlatformActionLimitQuery"
+              templateUrl : "/apex/Summer16ApexDemoPlatformActionLimitQuery",
+              routeTitle : "PlatformActionLimitQuery"
             }).
             when("/ToolingApiApexTests", {
               controller : "ToolingApiApexTestsCtrl",
-              templateUrl : "/apex/Summer16ApexDemoToolingApiApexTests"
+              templateUrl : "/apex/Summer16ApexDemoToolingApiApexTests",
+              routeTitle : "ToolingApiApexTests"
             }).
             otherwise({
                 redirectTo: "/"

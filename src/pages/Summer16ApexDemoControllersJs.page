@@ -15,8 +15,9 @@
             });
         
             // HomeCtrl
-            app.controller("HomeCtrl", ["$scope", "HomeServices", function($scope, services) {
+            app.controller("HomeCtrl", ["$scope", "HomeServices", "$route", function($scope, services, $route) {
                 try {
+                    $scope.routeTitle = $route.current.$$route.routeTitle;
                     services.init($scope);
                 } catch (e) {
                     throw e;
@@ -24,8 +25,9 @@
             }]);
 
             // SerializeJsonCtrl
-            app.controller("SerializeJsonCtrl", ["$scope", "SerializeServices", function($scope, services) {
+            app.controller("SerializeJsonCtrl", ["$scope", "SerializeServices", "$route", function($scope, services, $route) {
                 try {
+                    $scope.routeTitle = $route.current.$$route.routeTitle;
                     services.init($scope);
 
                     $scope.doSerializeOptionFalse = function() {
@@ -49,8 +51,9 @@
             }]);
 
             // PopulatedFieldsAsMapCtrl
-            app.controller("PopulatedFieldsAsMapCtrl", ["$scope", "PopulatedFieldsAsMapServices", function($scope, services) {
+            app.controller("PopulatedFieldsAsMapCtrl", ["$scope", "PopulatedFieldsAsMapServices", "$route", function($scope, services, $route) {
                 try {
+                    $scope.routeTitle = $route.current.$$route.routeTitle;
                     services.init($scope);
 
                     $scope.doGetPopulatedFieldsAsMap = function() {
@@ -62,8 +65,9 @@
             }]);
 
             // PlatformActionLimitQueryCtrl
-            app.controller("PlatformActionLimitQueryCtrl", ["$scope", "PlatformActionLimitQueryServices", function($scope, services) {
+            app.controller("PlatformActionLimitQueryCtrl", ["$scope", "PlatformActionLimitQueryServices", "$route", function($scope, services, $route) {
                 try {
+                    $scope.routeTitle = $route.current.$$route.routeTitle;
                     services.init($scope);
 
                     $scope.doLimitOnPlatformActionQuery = function() {
@@ -75,8 +79,9 @@
             }]);
 
             // ToolingApiApexTestsCtrl
-            app.controller("ToolingApiApexTestsCtrl", ["$scope", "ToolingApiApexTestsServices", function($scope, services) {
+            app.controller("ToolingApiApexTestsCtrl", ["$scope", "ToolingApiApexTestsServices", "$route", function($scope, services, $route) {
                 try {
+                    $scope.routeTitle = $route.current.$$route.routeTitle;
                     services.init($scope);
 
                     $scope.doRunTestsAsynchronous = function() {
