@@ -47,6 +47,19 @@
                     throw e;
                 }
             }]);
+
+            // PopulatedFieldsAsMapCtrl
+            app.controller("PopulatedFieldsAsMapCtrl", ["$scope", "PopulatedFieldsAsMapServices", function($scope, services) {
+                try {
+                    services.init($scope);
+
+                    $scope.doGetPopulatedFieldsAsMap = function() {
+                        services.doGetPopulatedFieldsAsMap($scope);
+                    }
+                } catch (e) {
+                    throw e;
+                }
+            }]);
         })();
     </script>
 </apex:page>

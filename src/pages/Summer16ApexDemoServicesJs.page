@@ -2,6 +2,7 @@
     <script type="text/javascript">
         var app = angular.module("Services", []);
 
+        // HomeServices
         app.factory("HomeServices", ["$rootScope", function($rootScope) {
             // 初期処理
             function init(scope) {
@@ -15,6 +16,7 @@
             };
         }]);
 
+        // SerializeServices
         app.factory("SerializeServices", ["$rootScope", function($rootScope) {
             // 初期処理
             function init(scope) {
@@ -70,6 +72,42 @@
                 doSerializePretty: function(scope, isSuppressApexObjectNulls) {
                     return doSerializePretty(scope, isSuppressApexObjectNulls);
                 },
+            };
+        }]);
+
+        // PopulatedFieldsAsMapServices
+        app.factory("PopulatedFieldsAsMapServices", ["$rootScope", function($rootScope) {
+
+            // 初期処理
+            function init(scope) {
+                console.log('入力された SObject 項目の対応付けの取得');
+            }
+
+            // getPopulatedFieldsAsMap Demo
+            function doGetPopulatedFieldsAsMap(scope) {
+                Summer16ApexDemoController.doPopulatedFieldsAsMapDemo(
+                    function(results, event) {
+                        if(event.status) {
+                            // 結果をセット
+                            scope.results = results;
+                            console.log(results);
+                        } else {
+                            alert(event.message);
+                        }
+                        // Viewに反映
+                        $rootScope.$apply();
+                    },
+                    { buffer: true, escape: false, timeout: 30000 }
+                );
+            }
+
+            return {
+                init: function(scope) {
+                    return init(scope);
+                },
+                doGetPopulatedFieldsAsMap: function(scope) {
+                    return doGetPopulatedFieldsAsMap(scope);
+                }
             };
         }]);
     </script>

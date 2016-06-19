@@ -4,7 +4,7 @@
         <ul class="slds-navigation-list--vertical slds-has-block-links--space">
             <li class="slds-is-active"><a href="{!$Page.Summer16ApexDemo}" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">Home</a></li>
             <li><a href="{!$Page.Summer16ApexDemo}#SerializeJson" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">New System.JSON</a></li>
-            <li><a class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">coming soon2</a></li>
+            <li><a href="{!$Page.Summer16ApexDemo}#PopulatedFieldsAsMap" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">New System.SObject</a></li>
             <li><a class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">coming soon3</a></li>
             <li><a class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">coming soon4</a></li>
         </ul>

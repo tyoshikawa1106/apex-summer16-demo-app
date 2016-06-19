@@ -9,6 +9,10 @@
               controller : "SerializeJsonCtrl",
               templateUrl : "/apex/Summer16ApexDemoSerializeJson"
             }).
+            when("/PopulatedFieldsAsMap", {
+              controller : "PopulatedFieldsAsMapCtrl",
+              templateUrl : "/apex/Summer16ApexDemoPopulatedFieldsAsMap"
+            }).
             otherwise({
                 redirectTo: "/"
             });
