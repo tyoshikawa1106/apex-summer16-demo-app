@@ -83,4 +83,22 @@ private class Summer16ApexDemoControllerTest {
             System.assertEquals(results.isEmpty(), true);
         }
     }
+
+    /**
+     * ToolingAPIのrunTestsAsynchronousとtestLevelパラメータ
+     */
+    static testMethod void doRunTestsAsynchronousTest1() {
+        System.runAs(testAdminUser) {
+
+            Test.setMock(HttpCalloutMock.class, new Summer16ApexDemoToolingApiCallout());
+            
+            Test.startTest();
+
+            String result = Summer16ApexDemoController.doRunTestsAsynchronous();
+
+            Test.stopTest();
+
+            System.assertEquals(String.isNotEmpty(result), true);
+        }
+    }
 }

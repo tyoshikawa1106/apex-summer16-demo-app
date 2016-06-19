@@ -1,0 +1,13 @@
+<apex:page showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false">
+    <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <c:Summer16ApexDemoPageHeader title="ToolingAPIのrunTestsAsynchronousとtestLevelパラメータ" description="http://releasenotes.docs.salesforce.com/ja-jp/summer16/release-notes/rn_apex_runtests.htm" />
+        <div class="slds-m-around--small">
+            <button ng-click="doRunTestsAsynchronous()" class="slds-button slds-button--brand">Run TestsAsynchronous</button>
+        </div>
+        <div class="slds-m-around--small">
+            <p>Apex Test Run ID = <span ng-bind="result"></span></p>
+            <p>※設定 → Apex テスト実行を確認するとテストが実行されていることを確認できます。</p>
+            <p>※testLevelパラメータを指定した際にエラーが発生したため、現在処理はコメントアウト中。</p>
+        </div>
+    </div>
+</apex:page>

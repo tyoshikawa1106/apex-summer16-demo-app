@@ -2,6 +2,7 @@
 private class Summer16ApexDemoHelperTest {
 
     private static Summer16ApexDemoHelper helper = new Summer16ApexDemoHelper();
+    private static Summer16ApexDemoDao dao = new Summer16ApexDemoDao();
     private static User testAdminUser = new User(Id = UserInfo.getUserId());
 
     /**
@@ -57,6 +58,46 @@ private class Summer16ApexDemoHelperTest {
             Test.stopTest();
 
             System.assertEquals(results.size(), 2);
+        }
+    }
+
+    /**
+     * Tooling APIのRequest Body取得
+     */
+    static testMethod void getRunTestsAsynchronousBodyTest1() {
+        System.runAs(testAdminUser) {
+
+            ApexClass apexClass = dao.getApexClass('Summer16ApexDemoController');
+            System.assertEquals(String.isNotEmpty(apexClass.Id), true);
+
+            Test.startTest();
+
+            // Tooling APIのRequest Body取得
+            String result = helper.getRunTestsAsynchronousBody(apexClass);
+
+            Test.stopTest();
+
+            System.assertEquals(String.isNotEmpty(result), true);
+        }
+    }
+
+    /**
+     * Tooling APIの実行
+     */
+    static testMethod void runToolingApiTest1() {
+        System.runAs(testAdminUser) {
+
+            Test.setMock(HttpCalloutMock.class, new Summer16ApexDemoToolingApiCallout());
+            String requestBody = '';
+
+            Test.startTest();
+
+            // Tooling APIの実行
+            String result = helper.runToolingApi(requestBody);
+
+            Test.stopTest();
+
+            System.assertEquals(String.isNotEmpty(result), true);
         }
     }
 }

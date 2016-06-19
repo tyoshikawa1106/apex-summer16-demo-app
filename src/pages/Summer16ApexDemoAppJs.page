@@ -17,6 +17,10 @@
               controller : "PlatformActionLimitQueryCtrl",
               templateUrl : "/apex/Summer16ApexDemoPlatformActionLimitQuery"
             }).
+            when("/ToolingApiApexTests", {
+              controller : "ToolingApiApexTestsCtrl",
+              templateUrl : "/apex/Summer16ApexDemoToolingApiApexTests"
+            }).
             otherwise({
                 redirectTo: "/"
             });

@@ -18,4 +18,40 @@ public with sharing class Summer16ApexDemoHelper {
 
         return results;
     }
+
+    /**
+     * Tooling APIのRequest Body取得
+     */
+    public String getRunTestsAsynchronousBody(ApexClass apexClass) {
+        String requestBody = '{';
+        requestBody += '    "tests": [';
+        requestBody += '        {';
+        requestBody += '            "classId": "' + apexClass.Id + '",';
+        requestBody += '            "testMethods": ["Summer16ApexDemoControllerTest1","doSerializeJsonTest1", "doSerializePrettyJsonTest1"]';
+        //requestBody += '        },{';
+        //requestBody += '            "testLevel": "RunSpecifiedTests"';
+        requestBody += '        }';
+        requestBody += '    ]';
+        requestBody += '}';
+        System.debug(requestBody);
+        return requestBody;
+    }
+
+    /**
+     * Tooling APIの実行
+     */
+    public String runToolingApi(String requestBody) {
+        Http http = new Http();
+        HttpRequest req = new HttpRequest();
+        req.setHeader('Authorization', 'Bearer ' + UserInfo.getSessionId());
+        req.setHeader('Content-Type', 'application/json');
+        req.setBody(requestBody);
+        req.setEndpoint(URL.getSalesforceBaseUrl().toExternalForm() + '/services/data/v37.0/tooling/runTestsAsynchronous');
+        req.setMethod('POST');
+        HttpResponse res = http.send(req);
+        System.debug(res);
+        String result = res.getBody();
+        System.debug(result);
+        return result;
+    }
 }

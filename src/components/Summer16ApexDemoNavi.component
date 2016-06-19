@@ -6,7 +6,7 @@
             <li><a href="{!$Page.Summer16ApexDemo}#SerializeJson" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">New System.JSON</a></li>
             <li><a href="{!$Page.Summer16ApexDemo}#PopulatedFieldsAsMap" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">New System.SObject</a></li>
             <li><a href="{!$Page.Summer16ApexDemo}#PlatformActionLimitQuery" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">Limit on PlatformAction Query</a></li>
-            <li><a class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">coming soon4</a></li>
+            <li><a href="{!$Page.Summer16ApexDemo}#ToolingApiApexTests" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">Tooling API Apex Test</a></li>
         </ul>
     </div>
 </apex:component>

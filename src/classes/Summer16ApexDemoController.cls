@@ -51,4 +51,20 @@ public with sharing class Summer16ApexDemoController {
     public static List<PlatformAction> doRemovalOfLimitOnPlatformactionQuery() {
         return dao.getPlatformActions();
     }
+
+    /**
+     * ToolingAPIのrunTestsAsynchronousとtestLevelパラメータ
+     */
+    @RemoteAction
+    public static String doRunTestsAsynchronous() {
+        // テスト対象のApexクラス情報取得
+        ApexClass apexClass = dao.getApexClass('Summer16ApexDemoController');
+        // Apexクラス情報取得判定
+        if (String.isEmpty(apexClass.Id)) return 'Not Found Target Class';
+        // Tooling APIのRequest Body取得
+        String requestBody = helper.getRunTestsAsynchronousBody(apexClass);
+        // Tooling API実行
+        String result = helper.runToolingApi(requestBody);
+        return result;
+    }
 }

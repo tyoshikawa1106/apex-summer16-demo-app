@@ -53,4 +53,21 @@ private class Summer16ApexDemoDaoTest {
             System.assertEquals(results.isEmpty(), true);
         }
     }
+
+    /**
+     * Apexクラス情報取得
+     */
+    static testMethod void getApexClassTest1() {
+        System.runAs(testAdminUser) {
+            
+            Test.startTest();
+
+            // Apexクラス情報取得
+            ApexClass result = dao.getApexClass('Summer16ApexDemoController');
+
+            Test.stopTest();
+
+            System.assertEquals(String.isNotEmpty(result.Id), true);
+        }
+    }
 }

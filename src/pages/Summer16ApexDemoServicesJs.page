@@ -111,22 +111,22 @@
             };
         }]);
 
-        // PlatformActionLimitQueryServices
-        app.factory("PlatformActionLimitQueryServices", ["$rootScope", function($rootScope) {
+        // ToolingApiApexTestsServices
+        app.factory("ToolingApiApexTestsServices", ["$rootScope", function($rootScope) {
 
             // 初期処理
             function init(scope) {
-                console.log('LIMIT 句を使用した PlatformAction に対する SOQL クエリの実行');
+                console.log('ToolingAPIのrunTestsAsynchronousとtestLevelパラメータ');
             }
 
-            // doLimitOnPlatformActionQuery
-            function doLimitOnPlatformActionQuery(scope) {
-                Summer16ApexDemoController.doRemovalOfLimitOnPlatformactionQuery(
-                    function(results, event) {
+            // doRunTestsAsynchronous
+            function doRunTestsAsynchronous(scope) {
+                Summer16ApexDemoController.doRunTestsAsynchronous(
+                    function(result, event) {
                         if(event.status) {
                             // 結果をセット
-                            scope.results = results;
-                            console.log(results);
+                            scope.result = result;
+                            console.log(result);
                         } else {
                             alert(event.message);
                         }
@@ -141,8 +141,8 @@
                 init: function(scope) {
                     return init(scope);
                 },
-                doLimitOnPlatformActionQuery: function(scope) {
-                    return doLimitOnPlatformActionQuery(scope);
+                doRunTestsAsynchronous: function(scope) {
+                    return doRunTestsAsynchronous(scope);
                 }
             };
         }]);

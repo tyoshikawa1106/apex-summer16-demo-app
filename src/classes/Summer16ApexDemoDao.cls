@@ -66,4 +66,12 @@ public with sharing class Summer16ApexDemoDao {
             LIMIT 5
         ];
     }
+
+    /**
+     * Apexクラス情報取得
+     */
+    public ApexClass getApexClass(String className) {
+        List<ApexClass> apexClasses = [SELECT Id FROM ApexClass WHERE Name =: className LIMIT 1];
+        return apexClasses.isEmpty() ? new ApexClass() : apexClasses[0];
+    }
 }
