@@ -35,4 +35,22 @@ private class Summer16ApexDemoDaoTest {
             System.assertEquals(String.isNotEmpty(result.Id), true);
         }
     }
+
+    /**
+     * PlatformActionオブジェクトの情報取得
+     * 値なし
+     */
+    static testMethod void getPlatformActionsTest1() {
+        System.runAs(testAdminUser) {
+            
+            Test.startTest();
+
+            // PlatformActionオブジェクトの情報取得
+            List<PlatformAction> results = dao.getPlatformActions();
+
+            Test.stopTest();
+
+            System.assertEquals(results.isEmpty(), true);
+        }
+    }
 }

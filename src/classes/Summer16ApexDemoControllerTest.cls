@@ -51,4 +51,20 @@ private class Summer16ApexDemoControllerTest {
             System.assertEquals(String.isNotEmpty(result), true);
         }
     }
+
+    /**
+     * LIMIT 句を使用した PlatformAction に対する SOQL クエリの実行
+     */
+    static testMethod void doRemovalOfLimitOnPlatformactionQueryTest1() {
+        System.runAs(testAdminUser) {
+            
+            Test.startTest();
+
+            List<PlatformAction> results = Summer16ApexDemoController.doRemovalOfLimitOnPlatformactionQuery();
+
+            Test.stopTest();
+
+            System.assertEquals(results.isEmpty(), true);
+        }
+    }
 }

@@ -60,6 +60,19 @@
                     throw e;
                 }
             }]);
+
+            // PlatformActionLimitQueryCtrl
+            app.controller("PlatformActionLimitQueryCtrl", ["$scope", "PlatformActionLimitQueryServices", function($scope, services) {
+                try {
+                    services.init($scope);
+
+                    $scope.doLimitOnPlatformActionQuery = function() {
+                        services.doLimitOnPlatformActionQuery($scope);
+                    }
+                } catch (e) {
+                    throw e;
+                }
+            }]);
         })();
     </script>
 </apex:page>

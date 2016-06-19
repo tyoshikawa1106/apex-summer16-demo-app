@@ -110,5 +110,41 @@
                 }
             };
         }]);
+
+        // PlatformActionLimitQueryServices
+        app.factory("PlatformActionLimitQueryServices", ["$rootScope", function($rootScope) {
+
+            // 初期処理
+            function init(scope) {
+                console.log('LIMIT 句を使用した PlatformAction に対する SOQL クエリの実行');
+            }
+
+            // doLimitOnPlatformActionQuery
+            function doLimitOnPlatformActionQuery(scope) {
+                Summer16ApexDemoController.doRemovalOfLimitOnPlatformactionQuery(
+                    function(results, event) {
+                        if(event.status) {
+                            // 結果をセット
+                            scope.results = results;
+                            console.log(results);
+                        } else {
+                            alert(event.message);
+                        }
+                        // Viewに反映
+                        $rootScope.$apply();
+                    },
+                    { buffer: true, escape: false, timeout: 30000 }
+                );
+            }
+
+            return {
+                init: function(scope) {
+                    return init(scope);
+                },
+                doLimitOnPlatformActionQuery: function(scope) {
+                    return doLimitOnPlatformActionQuery(scope);
+                }
+            };
+        }]);
     </script>
 </apex:page>

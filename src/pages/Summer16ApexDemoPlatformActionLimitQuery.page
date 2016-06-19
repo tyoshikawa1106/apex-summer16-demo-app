@@ -1,0 +1,112 @@
+<apex:page showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false">
+    <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <c:Summer16ApexDemoPageHeader title="入力された SObject 項目の対応付けの取得" description="http://releasenotes.docs.salesforce.com/ja-jp/summer16/release-notes/rn_apex_sobject_getmap.htm" />
+        <div class="slds-m-around--small">
+            <button ng-click="doLimitOnPlatformActionQuery()" class="slds-button slds-button--brand">Limit on PlatformAction Query</button>
+        </div>
+        <div>
+            <div class="slds-scrollable--x">
+                <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                    <thead>
+                        <tr>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.ActionTargetType.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.ActionTargetType.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.ApiName.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.ApiName.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.Category.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.Category.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.ExternalId.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.ExternalId.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.IconContentType.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.IconContentType.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.IconHeight.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.IconHeight.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.IconUrl.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.IconUrl.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.IconWidth.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.IconWidth.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.Id.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.Id.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.IsGroupDefault.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.IsGroupDefault.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.Label.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.Label.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.PrimaryColor.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.PrimaryColor.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.SourceEntity.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.SourceEntity.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.Subtype.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.Subtype.Label}</div>
+                            </th>
+                            <th scope="col" title="{!$ObjectType.PlatformAction.Fields.Type.Label}">
+                                <div class="slds-truncate">{!$ObjectType.PlatformAction.Fields.Type.Label}</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in results">
+                            <td data-label="{{item.ActionTargetType}}">
+                                <span ng-bind="item.ActionTargetType" />
+                            </td>
+                            <td data-label="{{item.ApiName}}">
+                                <span ng-bind="item.ApiName" />
+                            </td>
+                            <td data-label="{{item.Category}}">
+                                <span ng-bind="item.Category" />
+                            </td>
+                            <td data-label="{{item.ExternalId}}">
+                                <span ng-bind="item.ExternalId" />
+                            </td>
+                            <td data-label="{{item.IconContentType}}">
+                                <span ng-bind="item.IconContentType" />
+                            </td>
+                            <td data-label="{{item.IconHeight}}">
+                                <span ng-bind="item.IconHeight" />
+                            </td>
+                            <td data-label="{{item.IconUrl}}">
+                                <span ng-bind="item.IconUrl" />
+                            </td>
+                            <td data-label="{{item.IconWidth}}">
+                                <span ng-bind="item.IconWidth" />
+                            </td>
+                            <td data-label="{{item.Id}}">
+                                <span ng-bind="item.Id" />
+                            </td>
+                            <td data-label="{{item.IsGroupDefault}}">
+                                <span ng-bind="item.IsGroupDefault" />
+                            </td>
+                            <td data-label="{{item.Label}}">
+                                <span ng-bind="item.Label" />
+                            </td>
+                            <td data-label="{{item.PrimaryColor}}">
+                                <span ng-bind="item.PrimaryColor" />
+                            </td>
+                            <td data-label="{{item.SourceEntity}}">
+                                <span ng-bind="item.SourceEntity" />
+                            </td>
+                            <td data-label="{{item.Subtype}}">
+                                <span ng-bind="item.Subtype" />
+                            </td>
+                            <td data-label="{{item.Type}}">
+                                <span ng-bind="item.Type" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</apex:page>

@@ -43,4 +43,12 @@ public with sharing class Summer16ApexDemoController {
         List<String> results = helper.getPopulatedFieldsAsMapDemoResults(fieldsToValue);
         return results;
     }
+
+    /**
+     * LIMIT 句を使用した PlatformAction に対する SOQL クエリの実行
+     */
+    @RemoteAction
+    public static List<PlatformAction> doRemovalOfLimitOnPlatformactionQuery() {
+        return dao.getPlatformActions();
+    }
 }

@@ -13,6 +13,10 @@
               controller : "PopulatedFieldsAsMapCtrl",
               templateUrl : "/apex/Summer16ApexDemoPopulatedFieldsAsMap"
             }).
+            when("/PlatformActionLimitQuery", {
+              controller : "PlatformActionLimitQueryCtrl",
+              templateUrl : "/apex/Summer16ApexDemoPlatformActionLimitQuery"
+            }).
             otherwise({
                 redirectTo: "/"
             });
