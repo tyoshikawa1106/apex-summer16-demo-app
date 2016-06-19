@@ -53,6 +53,22 @@ private class Summer16ApexDemoControllerTest {
     }
 
     /**
+     * 入力された SObject 項目の対応付けの取得
+     */
+    static testMethod void doPopulatedFieldsAsMapDemoTest1() {
+        System.runAs(testAdminUser) {
+            
+            Test.startTest();
+
+            List<String> results = Summer16ApexDemoController.doPopulatedFieldsAsMapDemo();
+
+            Test.stopTest();
+
+            System.assertEquals(results.size(), 11);
+        }
+    }
+
+    /**
      * LIMIT 句を使用した PlatformAction に対する SOQL クエリの実行
      */
     static testMethod void doRemovalOfLimitOnPlatformactionQueryTest1() {
