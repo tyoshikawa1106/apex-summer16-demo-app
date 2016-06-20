@@ -1,10 +1,7 @@
 <apex:page showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false">
     <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <div class="slds-grid">
-            <nav class="slds-col slds-size--2-of-12 sideMenu">
-                <c:Summer16ApexDemoNavi />
-            </nav>
-            <main class="slds-col slds-size--10-of-12">
+        <apex:composition template="Summer16ApexDemoViewTemplate">
+            <apex:define name="content">
                 <c:Summer16ApexDemoPageHeader title="LIMIT 句を使用した PlatformAction に対する SOQL クエリの実行" description="http://releasenotes.docs.salesforce.com/ja-jp/summer16/release-notes/rn_apex_removal_of_limit_on_platformaction_query.htm" />
                 <div class="slds-m-around--small">
                     <button ng-click="doLimitOnPlatformActionQuery()" class="slds-button slds-button--brand">Limit on PlatformAction Query</button>
@@ -113,7 +110,7 @@
                         </table>
                     </div>
                 </div>
-            </main>
-        </div>
+            </apex:define>
+        </apex:composition>
     </div>
 </apex:page>

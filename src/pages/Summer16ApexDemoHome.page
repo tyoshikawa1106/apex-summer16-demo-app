@@ -1,12 +1,9 @@
 <apex:page showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false">
     <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <div class="slds-grid">
-            <nav class="slds-col slds-size--2-of-12 sideMenu">
-                <c:Summer16ApexDemoNavi />
-            </nav>
-            <main class="slds-col slds-size--10-of-12">
+        <apex:composition template="Summer16ApexDemoViewTemplate">
+            <apex:define name="content">
                 <iframe src="https://tyoshikawa1106.github.io/" width="100%" height="650px" frameborder="0"></iframe>
-            </main>
-        </div>
+            </apex:define>
+        </apex:composition>
     </div>
 </apex:page>
