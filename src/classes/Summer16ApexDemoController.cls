@@ -58,7 +58,7 @@ public with sharing class Summer16ApexDemoController {
     @RemoteAction
     public static String doRunTestsAsynchronous() {
         // テスト対象のApexクラス情報取得
-        ApexClass apexClass = dao.getApexClass('Summer16ApexDemoController');
+        ApexClass apexClass = dao.getApexClass('Summer16ApexDemoControllerTest');
         // Apexクラス情報取得判定
         if (String.isEmpty(apexClass.Id)) return 'Not Found Target Class';
         // Tooling APIのRequest Body取得

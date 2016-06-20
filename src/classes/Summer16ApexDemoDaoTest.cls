@@ -63,7 +63,7 @@ private class Summer16ApexDemoDaoTest {
             Test.startTest();
 
             // Apexクラス情報取得
-            ApexClass result = dao.getApexClass('Summer16ApexDemoController');
+            ApexClass result = dao.getApexClass('Summer16ApexDemoControllerTest');
 
             Test.stopTest();
 
