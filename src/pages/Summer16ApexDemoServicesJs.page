@@ -182,5 +182,40 @@
                 }
             };
         }]);
+
+        // IsMruEnabledServices
+        app.factory("IsMruEnabledServices", ["$rootScope", function($rootScope) {
+
+            // 初期処理
+            function init(scope) {
+                console.log('Schema.DescribeSObjectResult クラスの新しいメソッド - isMruEnabled()');
+            }
+
+            // getIsMruEnabledInfo
+            function getIsMruEnabledInfo(scope) {
+                Summer16ApexDemoController.getIsMruEnabledInfo(
+                    function(results, event) {
+                        if(event.status) {
+                            // 結果をセット
+                            scope.results = results;
+                        } else {
+                            alert(event.message);
+                        }
+                        // Viewに反映
+                        $rootScope.$apply();
+                    },
+                    { buffer: true, escape: false, timeout: 30000 }
+                );
+            }
+
+            return {
+                init: function(scope) {
+                    return init(scope);
+                },
+                getIsMruEnabledInfo: function(scope) {
+                    return getIsMruEnabledInfo(scope);
+                }
+            };
+        }]);
     </script>
 </apex:page>

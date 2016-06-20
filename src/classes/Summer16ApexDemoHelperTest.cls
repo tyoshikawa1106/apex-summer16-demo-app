@@ -100,4 +100,20 @@ private class Summer16ApexDemoHelperTest {
             System.assertEquals(String.isNotEmpty(result), true);
         }
     }
+
+    /**
+     * isMruEnabled()の実行結果取得
+     */
+    static testMethod void getIsMruEnabledResultTest1() {
+        System.runAs(testAdminUser) {
+            
+            Test.startTest();
+
+            List<String> results = helper.getIsMruEnabledResult();
+
+            Test.stopTest();
+
+            System.assertEquals(results.isEmpty(), false);
+        }
+    }
 }

@@ -7,6 +7,7 @@
             <li ng-class="{'slds-is-active' : (routeTitle == 'PopulatedFieldsAsMap')}"><a href="{!$Page.Summer16ApexDemo}#PopulatedFieldsAsMap" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">New System.SObject</a></li>
             <li ng-class="{'slds-is-active' : (routeTitle == 'PlatformActionLimitQuery')}"><a href="{!$Page.Summer16ApexDemo}#PlatformActionLimitQuery" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">Limit on PlatformAction Query</a></li>
             <li ng-class="{'slds-is-active' : (routeTitle == 'ToolingApiApexTests')}"><a href="{!$Page.Summer16ApexDemo}#ToolingApiApexTests" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">Tooling API Apex Test</a></li>
+            <li ng-class="{'slds-is-active' : (routeTitle == 'IsMruEnabled')}"><a href="{!$Page.Summer16ApexDemo}#IsMruEnabled" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">isMruEnabled Method</a></li>
         </ul>
     </div>
 </apex:component>

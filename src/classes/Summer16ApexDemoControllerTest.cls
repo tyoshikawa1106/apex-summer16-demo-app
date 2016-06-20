@@ -101,4 +101,20 @@ private class Summer16ApexDemoControllerTest {
             System.assertEquals(String.isNotEmpty(result), true);
         }
     }
+
+    /**
+     * Schema.DescribeSObjectResult クラスの新しいメソッド - isMruEnabled()
+     */
+    static testMethod void getIsMruEnabledInfoTest1() {
+        System.runAs(testAdminUser) {
+            
+            Test.startTest();
+
+            List<String> results = Summer16ApexDemoController.getIsMruEnabledInfo();
+
+            Test.stopTest();
+
+            System.assertEquals(results.isEmpty(), false);
+        }
+    }
 }

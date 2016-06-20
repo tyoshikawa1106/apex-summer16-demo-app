@@ -54,4 +54,21 @@ public with sharing class Summer16ApexDemoHelper {
         System.debug(result);
         return result;
     }
+
+    /**
+     * isMruEnabled()の実行結果取得
+     */
+    public List<String> getIsMruEnabledResult() {
+        List<String> results = new List<String>();
+        results.add('Account.sObjectType.getDescribe().isMruEnabled() = ' + Account.sObjectType.getDescribe().isMruEnabled());
+        results.add('Contact.sObjectType.getDescribe().isMruEnabled() = ' + Contact.sObjectType.getDescribe().isMruEnabled());
+        results.add('Opportunity.sObjectType.getDescribe().isMruEnabled() = ' + Opportunity.sObjectType.getDescribe().isMruEnabled());
+        results.add('Lead.sObjectType.getDescribe().isMruEnabled() = ' + Lead.sObjectType.getDescribe().isMruEnabled());
+        results.add('Case.sObjectType.getDescribe().isMruEnabled() = ' + Case.sObjectType.getDescribe().isMruEnabled());
+        results.add('Event.sObjectType.getDescribe().isMruEnabled() = ' + Event.sObjectType.getDescribe().isMruEnabled());
+        results.add('Task.sObjectType.getDescribe().isMruEnabled() = ' + Task.sObjectType.getDescribe().isMruEnabled());
+        results.add('User.sObjectType.getDescribe().isMruEnabled() = ' + User.sObjectType.getDescribe().isMruEnabled());
+        results.add('Group.sObjectType.getDescribe().isMruEnabled() = ' + Group.sObjectType.getDescribe().isMruEnabled());
+        return results;
+    }
 }

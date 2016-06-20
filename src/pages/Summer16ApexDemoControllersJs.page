@@ -91,6 +91,20 @@
                     throw e;
                 }
             }]);
+
+            // IsMruEnabledCtrl
+            app.controller("IsMruEnabledCtrl", ["$scope", "IsMruEnabledServices", "$route", function($scope, services, $route) {
+                try {
+                    $scope.routeTitle = $route.current.$$route.routeTitle;
+                    services.init($scope);
+
+                    $scope.getIsMruEnabledInfo = function() {
+                        services.getIsMruEnabledInfo($scope);
+                    }
+                } catch (e) {
+                    throw e;
+                }
+            }]);
         })();
     </script>
 </apex:page>

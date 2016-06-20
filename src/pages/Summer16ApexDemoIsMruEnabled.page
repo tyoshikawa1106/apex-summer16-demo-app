@@ -1,0 +1,22 @@
+<apex:page showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false">
+    <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <div class="slds-grid">
+            <nav class="slds-col slds-size--2-of-12 sideMenu">
+                <c:Summer16ApexDemoNavi />
+            </nav>
+            <main class="slds-col slds-size--10-of-12">
+                <c:Summer16ApexDemoPageHeader title="Schema.DescribeSObjectResult クラスの新しいメソッド - isMruEnabled()" description="http://releasenotes.docs.salesforce.com/ja-jp/summer16/release-notes/rn_apex_new_classes_methods.htm#rn_apex_new_classes_methods" />
+                <div class="slds-m-around--small">
+                    <button ng-click="getIsMruEnabledInfo()" class="slds-button slds-button--brand">Get isMruEnabled Info</button>
+                </div>
+                <div>
+                    <ul class="slds-has-dividers--bottom slds-has-block-links--space">
+                        <li class="slds-item slds-m-around--small" ng-repeat="item in results">
+                            <span ng-bind="item" />
+                        </li>
+                    </ul>
+                </div>
+            </main>
+        </div>
+    </div>
+</apex:page>

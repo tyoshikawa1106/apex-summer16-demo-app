@@ -67,4 +67,14 @@ public with sharing class Summer16ApexDemoController {
         String result = helper.runToolingApi(requestBody);
         return result;
     }
+
+    /**
+     * Schema.DescribeSObjectResult クラスの新しいメソッド - isMruEnabled()
+     */
+    @RemoteAction
+    public static List<String> getIsMruEnabledInfo() {
+        // isMruEnabled()の実行結果取得
+        List<String> results = helper.getIsMruEnabledResult();
+        return results;
+    }
 }

@@ -26,6 +26,11 @@
               templateUrl : "/apex/Summer16ApexDemoToolingApiApexTests",
               routeTitle : "ToolingApiApexTests"
             }).
+            when("/IsMruEnabled", {
+              controller : "IsMruEnabledCtrl",
+              templateUrl : "/apex/Summer16ApexDemoIsMruEnabled",
+              routeTitle : "IsMruEnabled"
+            }).
             otherwise({
                 redirectTo: "/"
             });
