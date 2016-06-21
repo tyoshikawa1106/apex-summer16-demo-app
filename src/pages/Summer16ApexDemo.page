@@ -1,6 +1,7 @@
 <apex:page controller="Summer16ApexDemoController" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false">
     <head>
         <title>Summer16 New Apex</title>
+        <apex:includeScript value="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.6.3/jsforce.min.js" />
         <apex:includeScript value="{!URLFOR($Resource.AngularJsLib, 'angular/angular.min.js')}" />
         <apex:includeScript value="{!URLFOR($Resource.AngularJsLib, 'angular-route/angular-route.js')}" />
         <apex:includeScript value="{!URLFOR($Resource.AngularJsLib, 'angular-messages/angular-messages.min.js')}" />

@@ -21,6 +21,7 @@ public with sharing class Summer16ApexDemoHelper {
 
     /**
      * Tooling APIのRequest Body取得
+     * - testLevelオプションを指定時にエラーが発生したためコメントアウト
      */
     public String getRunTestsAsynchronousBody(ApexClass apexClass) {
         String requestBody = '{';
@@ -70,5 +71,43 @@ public with sharing class Summer16ApexDemoHelper {
         results.add('User.sObjectType.getDescribe().isMruEnabled() = ' + User.sObjectType.getDescribe().isMruEnabled());
         results.add('Group.sObjectType.getDescribe().isMruEnabled() = ' + Group.sObjectType.getDescribe().isMruEnabled());
         return results;
+    }
+
+    /**
+     * SOSL(Format)クエリ実行
+     */
+    public String getSoslFormatQuery(String searchKey) {
+        return 'FIND {' + searchKey + '} RETURNING Account(Id, Name, LastModifiedDate, FORMAT(LastModifiedDate) FormattedDate ORDER BY Name ASC)';
+    }
+
+    /**
+     * SOSL(Snippet)クエリ実行
+     */
+    public String getSoslSnippetQuery(String searchKey) {
+        return 'FIND+{' + searchKey + '}+IN+ALL+FIELDS+RETURNING+Case(Subject,+Description+ORDER+BY+Subject+ASC)+WITH+SNIPPET';
+    }
+
+    /**
+     * SOSL(Metadata)クエリ実行
+     */
+    public String getSoslMetadataQuery(String searchKey) {
+        return 'FIND+{' + searchKey + '}+RETURNING+Account(Id,+Name,+AccountNumber+ORDER+BY+Name+ASC)+,Opportunity(Name+ORDER+BY+Name+ASC)+WITH+METADATA=\'LABELS\'';
+    }
+
+    /**
+     * SOSL API 実行
+     */
+    public String runSoslApi(String soslQuery) {
+        Http http = new Http();
+        HttpRequest req = new HttpRequest();
+        req.setHeader('Authorization', 'Bearer ' + UserInfo.getSessionId());
+        req.setHeader('Content-Type', 'application/json');
+        req.setEndpoint(URL.getSalesforceBaseUrl().toExternalForm() + '/services/data/v37.0/search?q=' + soslQuery);
+        req.setMethod('GET');
+        HttpResponse res = http.send(req);
+        System.debug(res);
+        String result = res.getBody();
+        System.debug(result);
+        return result;
     }
 }

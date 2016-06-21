@@ -1,0 +1,24 @@
+<apex:page showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false">
+    <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <apex:composition template="Summer16ApexDemoViewTemplate">
+            <apex:define name="content">
+                <c:Summer16ApexDemoPageHeader title="SOSLのSNIPPETをつかってキーワードのハイライト情報取得" description="http://releasenotes.docs.salesforce.com/ja-jp/summer16/release-notes/rn_api_sosl.htm#rn_api_sosl_snippet" />
+                <div class="slds-m-around--small">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control slds-input-has-fixed-addon">
+                            <input type="text" class="slds-input" ng-model="searchKey" placeholder="Please Case Subject"></input>
+                            <span class="slds-form-element__addon">
+                                <button ng-click="doSoslQuery()" class="slds-button slds-button--brand">Search</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-m-around--small">
+                    <div style="background-color: rgba(0,0,0,0.6); color: #fff; font-weight: bold;" class="slds-p-around--small slds-m-top--small">
+                        <pre ng-bind="result"></pre>
+                    </div>
+                </div>
+            </apex:define>
+        </apex:composition>
+    </div>
+</apex:page>

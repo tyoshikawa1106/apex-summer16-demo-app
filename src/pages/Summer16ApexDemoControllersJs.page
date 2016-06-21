@@ -105,6 +105,51 @@
                     throw e;
                 }
             }]);
+
+            // SoslFormatCtrl
+            app.controller("SoslFormatCtrl", ["$scope", "SoslFormatServices", "$route", function($scope, services, $route) {
+                try {
+                    $scope.routeTitle = $route.current.$$route.routeTitle;
+                    $scope.searchKey = 'United';
+                    services.init($scope);
+
+                    $scope.doSoslQuery = function() {
+                        services.doSoslQuery($scope);
+                    }
+                } catch (e) {
+                    throw e;
+                }
+            }]);
+
+            // SoslSnippetCtrl
+            app.controller("SoslSnippetCtrl", ["$scope", "SoslSnippetServices", "$route", function($scope, services, $route) {
+                try {
+                    $scope.routeTitle = $route.current.$$route.routeTitle;
+                    $scope.searchKey = 'after';
+                    services.init($scope);
+
+                    $scope.doSoslQuery = function() {
+                        services.doSoslQuery($scope);
+                    }
+                } catch (e) {
+                    throw e;
+                }
+            }]);
+
+            // SoslMetadataCtrl
+            app.controller("SoslMetadataCtrl", ["$scope", "SoslMetadataServices", "$route", function($scope, services, $route) {
+                try {
+                    $scope.routeTitle = $route.current.$$route.routeTitle;
+                    $scope.searchKey = 'United';
+                    services.init($scope);
+
+                    $scope.doSoslQuery = function() {
+                        services.doSoslQuery($scope);
+                    }
+                } catch (e) {
+                    throw e;
+                }
+            }]);
         })();
     </script>
 </apex:page>

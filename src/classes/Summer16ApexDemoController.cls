@@ -77,4 +77,43 @@ public with sharing class Summer16ApexDemoController {
         List<String> results = helper.getIsMruEnabledResult();
         return results;
     }
+
+    /**
+     * SOSLのFORMATをつかってローカライズされた書式の適用
+     */
+    @RemoteAction
+    public static List<List<Object>> doSoslFormatQuery(String searchKey) {
+        // SOSLクエリの実行
+        String soslQuery = helper.getSoslFormatQuery(searchKey);
+        List<List<Object>> results = search.query(soslQuery);
+        return results;
+    }
+
+    /**
+     * SOSLのSNIPPETをつかってキーワードのハイライト
+     */
+    @RemoteAction
+    public static String doSoslSnippetQuery(String searchKey) {       
+        
+        // 通常のSOSL実行
+        //String soslQuery = 'FIND {after} IN ALL FIELDS RETURNING Case(Subject, Description) WITH SNIPPET';
+        //List<List<Object>> results = search.query(soslQuery);
+
+        // REST APIによるSOSL実行
+        String soslQuery = helper.getSoslSnippetQuery(searchKey);
+        String result = helper.runSoslApi(soslQuery);
+
+        return result;
+    }
+
+    /**
+     * SOSLとMetadata
+     */
+    @RemoteAction
+    public static String doSoslMetadataQuery(String searchKey) {       
+        // REST APIによるSOSL実行
+        String soslQuery = helper.getSoslMetadataQuery(searchKey);
+        String result = helper.runSoslApi(soslQuery);
+        return result;
+    }
 }

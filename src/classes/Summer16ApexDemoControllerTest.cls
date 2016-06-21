@@ -117,4 +117,61 @@ private class Summer16ApexDemoControllerTest {
             System.assertEquals(results.isEmpty(), false);
         }
     }
+
+    /**
+     * SOSLのFORMATをつかってローカライズされた書式の適用
+     */
+    static testMethod void doSoslFormatQueryTest1() {
+        System.runAs(testAdminUser) {
+
+            Test.setMock(HttpCalloutMock.class, new Summer16ApexDemoSoslApiCallout());
+            String searchKey = 'keyword';
+            
+            Test.startTest();
+
+            List<List<Object>> results = Summer16ApexDemoController.doSoslFormatQuery(searchKey);
+
+            Test.stopTest();
+
+            System.assertEquals(results.isEmpty(), false);
+        }
+    }
+
+    /**
+     * SOSLのSNIPPETをつかってキーワードのハイライト
+     */
+    static testMethod void doSoslSnippetQueryTest1() {
+        System.runAs(testAdminUser) {
+
+            Test.setMock(HttpCalloutMock.class, new Summer16ApexDemoSoslApiCallout());
+            String searchKey = 'keyword';
+            
+            Test.startTest();
+
+            String result = Summer16ApexDemoController.doSoslSnippetQuery(searchKey);
+
+            Test.stopTest();
+
+            System.assertEquals(String.isNotEmpty(result), true);
+        }
+    }
+
+    /**
+     * SOSLとMetadata
+     */
+    static testMethod void doSoslMetadataQueryTest1() {
+        System.runAs(testAdminUser) {
+
+            Test.setMock(HttpCalloutMock.class, new Summer16ApexDemoSoslApiCallout());
+            String searchKey = 'keyword';
+            
+            Test.startTest();
+
+            String result = Summer16ApexDemoController.doSoslMetadataQuery(searchKey);
+
+            Test.stopTest();
+
+            System.assertEquals(String.isNotEmpty(result), true);
+        }
+    }
 }

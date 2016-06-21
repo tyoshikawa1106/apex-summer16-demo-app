@@ -217,5 +217,133 @@
                 }
             };
         }]);
+
+        // SoslFormatServices
+        app.factory("SoslFormatServices", ["$rootScope", function($rootScope) {
+
+            // 初期処理
+            function init(scope) {
+                console.log('SOSLのFORMATをつかってローカライズされた書式の適用');
+            }
+
+            // doSoslQuery
+            function doSoslQuery(scope) {
+                if (!scope.searchKey) {
+                    alert('検索条件を入力してください');
+                    return false;
+                }
+                
+                Summer16ApexDemoController.doSoslFormatQuery(
+                    scope.searchKey,
+                    function(results, event) {
+                        if(event.status) {
+                            // 結果をセット
+                            scope.results = results;
+                            console.log(results);
+                        } else {
+                            alert(event.message);
+                        }
+                        // Viewに反映
+                        $rootScope.$apply();
+                    },
+                    { buffer: true, escape: false, timeout: 30000 }
+                );
+            }
+
+            return {
+                init: function(scope) {
+                    return init(scope);
+                },
+                doSoslQuery: function(scope) {
+                    return doSoslQuery(scope);
+                }
+            };
+        }]);
+
+        // SoslSnippetServices
+        app.factory("SoslSnippetServices", ["$rootScope", function($rootScope) {
+
+            // 初期処理
+            function init(scope) {
+                console.log('SOSLのSnippetをつかってハイライト情報取得');
+            }
+
+            // doSoslQuery
+            function doSoslQuery(scope) {
+                if (!scope.searchKey) {
+                    alert('検索条件を入力してください');
+                    return false;
+                }
+
+                Summer16ApexDemoController.doSoslSnippetQuery(
+                    scope.searchKey,
+                    function(result, event) {
+                        if(event.status) {
+                            // 結果をセット
+                            console.log(result);
+                            var resultStr = JSON.parse(result);
+                            scope.result = JSON.stringify(resultStr, null, "    ");
+                        } else {
+                            alert(event.message);
+                        }
+                        // Viewに反映
+                        $rootScope.$apply();
+                    },
+                    { buffer: true, escape: false, timeout: 30000 }
+                );
+            }
+
+            return {
+                init: function(scope) {
+                    return init(scope);
+                },
+                doSoslQuery: function(scope) {
+                    return doSoslQuery(scope);
+                }
+            };
+        }]);
+
+        // SoslMetadataServices
+        app.factory("SoslMetadataServices", ["$rootScope", function($rootScope) {
+
+            // 初期処理
+            function init(scope) {
+                console.log('SOSLでMatadata情報取得');
+            }
+
+            // doSoslQuery
+            function doSoslQuery(scope) {
+                if (!scope.searchKey) {
+                    alert('検索条件を入力してください');
+                    return false;
+                }
+
+                Summer16ApexDemoController.doSoslMetadataQuery(
+                    scope.searchKey,
+                    function(result, event) {
+                        if(event.status) {
+                            // 結果をセット
+                            console.log(result);
+                            var resultStr = JSON.parse(result);
+                            scope.result = JSON.stringify(resultStr, null, "    ");
+                        } else {
+                            alert(event.message);
+                        }
+                        // Viewに反映
+                        $rootScope.$apply();
+                    },
+                    { buffer: true, escape: false, timeout: 30000 }
+                );
+            }
+
+            return {
+                init: function(scope) {
+                    return init(scope);
+                },
+                doSoslQuery: function(scope) {
+                    return doSoslQuery(scope);
+                }
+            };
+        }]);
     </script>
 </apex:page>

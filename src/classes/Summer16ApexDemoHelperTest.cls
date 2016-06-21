@@ -116,4 +116,77 @@ private class Summer16ApexDemoHelperTest {
             System.assertEquals(results.isEmpty(), false);
         }
     }
+
+    /**
+     * SOSL(Format)クエリ実行
+     */
+    static testMethod void getSoslFormatQueryTest1() {
+        System.runAs(testAdminUser) {
+
+            String searchKey = 'keyword';
+            
+            Test.startTest();
+
+            String result = helper.getSoslFormatQuery(searchKey);
+
+            Test.stopTest();
+
+            System.assertEquals(String.isNotEmpty(result), true);
+        }
+    }
+
+    /**
+     * SOSL(Snippet)クエリ実行
+     */
+    static testMethod void getSoslSnippetQueryTest1() {
+        System.runAs(testAdminUser) {
+
+            String searchKey = 'keyword';
+            
+            Test.startTest();
+
+            String result = helper.getSoslSnippetQuery(searchKey);
+
+            Test.stopTest();
+
+            System.assertEquals(String.isNotEmpty(result), true);
+        }
+    }
+
+    /**
+     * SOSL(Metadata)クエリ実行
+     */
+    static testMethod void getSoslMetadataQueryTest1() {
+        System.runAs(testAdminUser) {
+
+            String searchKey = 'keyword';
+            
+            Test.startTest();
+
+            String result = helper.getSoslMetadataQuery(searchKey);
+
+            Test.stopTest();
+
+            System.assertEquals(String.isNotEmpty(result), true);
+        }
+    }
+
+    /**
+     * SOSL API 実行
+     */
+    static testMethod void runSoslApiTest1() {
+        System.runAs(testAdminUser) {
+
+            Test.setMock(HttpCalloutMock.class, new Summer16ApexDemoSoslApiCallout());
+            String soslQuery = 'FIND+{keyword}+IN+ALL+FIELDS+RETURNING+Case(Subject,+Description)+WITH+SNIPPET';
+            
+            Test.startTest();
+
+            String result = helper.runSoslApi(soslQuery);
+
+            Test.stopTest();
+
+            System.assertEquals(String.isNotEmpty(result), true);
+        }
+    }
 }

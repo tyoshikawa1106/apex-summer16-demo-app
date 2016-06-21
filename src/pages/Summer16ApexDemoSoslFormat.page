@@ -1,0 +1,49 @@
+<apex:page showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false">
+    <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <apex:composition template="Summer16ApexDemoViewTemplate">
+            <apex:define name="content">
+                <c:Summer16ApexDemoPageHeader title="SOSLのFORMATをつかってローカライズされた書式の適用" description="http://releasenotes.docs.salesforce.com/ja-jp/summer16/release-notes/rn_api_sosl.htm#rn_api_sosl_format" />
+                <div class="slds-m-around--small">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control slds-input-has-fixed-addon">
+                            <input type="text" class="slds-input" ng-model="searchKey" placeholder="Please Account Name"></input>
+                            <span class="slds-form-element__addon">
+                                <button ng-click="doSoslQuery()" class="slds-button slds-button--brand">Search</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-m-around--small">
+                   <table class="slds-table slds-table--bordered" cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr class="slds-text-heading--label">
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>LastModifiedDate</th>
+                                <th>FormattedDate</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="items in results">
+                            <tr ng-repeat="item in items">
+                                <td>
+                                    <a href="/{{item.Id}}">
+                                        <span ng-bind="item.Id" />
+                                    </a>
+                                </td>
+                                <td>
+                                    <span ng-bind="item.Name" />
+                                </td>
+                                <td>
+                                    <span ng-bind="item.LastModifiedDate" />
+                                </td>
+                                <td>
+                                    <span ng-bind="item.FormattedDate" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </apex:define>
+        </apex:composition>
+    </div>
+</apex:page>

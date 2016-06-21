@@ -8,6 +8,9 @@
             <li ng-class="{'slds-is-active' : (routeTitle == 'PlatformActionLimitQuery')}"><a href="{!$Page.Summer16ApexDemo}#PlatformActionLimitQuery" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">Limit on PlatformAction Query</a></li>
             <li ng-class="{'slds-is-active' : (routeTitle == 'ToolingApiApexTests')}"><a href="{!$Page.Summer16ApexDemo}#ToolingApiApexTests" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">Tooling API Apex Test</a></li>
             <li ng-class="{'slds-is-active' : (routeTitle == 'IsMruEnabled')}"><a href="{!$Page.Summer16ApexDemo}#IsMruEnabled" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">isMruEnabled Method</a></li>
+            <li ng-class="{'slds-is-active' : (routeTitle == 'SoslFormat')}"><a href="{!$Page.Summer16ApexDemo}#SoslFormat" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">SOSL (Format)</a></li>
+            <li ng-class="{'slds-is-active' : (routeTitle == 'SoslSnippet')}"><a href="{!$Page.Summer16ApexDemo}#SoslSnippet" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">SOSL (Snippet)</a></li>
+            <li ng-class="{'slds-is-active' : (routeTitle == 'SoslMetadata')}"><a href="{!$Page.Summer16ApexDemo}#SoslMetadata" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">SOSL (Metadata)</a></li>
         </ul>
     </div>
 </apex:component>

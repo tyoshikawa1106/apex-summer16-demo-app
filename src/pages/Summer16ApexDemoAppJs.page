@@ -31,6 +31,21 @@
               templateUrl : "/apex/Summer16ApexDemoIsMruEnabled",
               routeTitle : "IsMruEnabled"
             }).
+            when("/SoslFormat", {
+              controller : "SoslFormatCtrl",
+              templateUrl : "/apex/Summer16ApexDemoSoslFormat",
+              routeTitle : "SoslFormat"
+            }).
+            when("/SoslSnippet", {
+              controller : "SoslSnippetCtrl",
+              templateUrl : "/apex/Summer16ApexDemoSoslSnippet",
+              routeTitle : "SoslSnippet"
+            }).
+            when("/SoslMetadata", {
+              controller : "SoslMetadataCtrl",
+              templateUrl : "/apex/Summer16ApexDemoSoslMetadata",
+              routeTitle : "SoslMetadata"
+            }).
             otherwise({
                 redirectTo: "/"
             });
