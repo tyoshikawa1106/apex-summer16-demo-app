@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="slds-m-around--small">
-                    <div style="background-color: rgba(0,0,0,0.6); color: #fff; font-weight: bold;" class="slds-p-around--small slds-m-top--small">
+                    <div class="prePanel slds-p-around--small slds-m-top--small">
                         <pre ng-bind="result"></pre>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
                     <button ng-click="doSerializeOptionTrue()" class="slds-button slds-button--brand">JSON.serialize (suppressApexObjectNulls = True)</button>
                 </div>
                 <div class="slds-m-around--small">
-                    <div style="background-color: rgba(0,0,0,0.6); color: #fff; font-weight: bold;" class="slds-p-around--small slds-m-top--small">
+                    <div class="prePanel slds-p-around--small slds-m-top--small">
                         <pre ng-bind="result"></pre>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                     <button ng-click="doSerializePrettyOptionTrue()" class="slds-button slds-button--brand">JSON.serializePretty (suppressApexObjectNulls = True)</button>
                 </div>
                 <div class="slds-m-around--small">
-                    <div style="background-color: rgba(0,0,0,0.6); color: #fff; font-weight: bold;" class="slds-p-around--small slds-m-top--small">
+                    <div class="prePanel slds-p-around--small slds-m-top--small">
                         <pre ng-bind="resultPretty"></pre>
                     </div>
                 </div>
